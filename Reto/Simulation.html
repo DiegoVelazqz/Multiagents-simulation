@@ -56,9 +56,8 @@
             document.body.appendChild(stats.dom);
 
             // GUI
-            
-            
             gui = new dat.GUI();
+
             // SCENE-MENU
             const guiSceneMenu = gui.addFolder("Scene Menu");
             guiSceneMenu.add(scenary.axes, "visible").setValue(scenary.axes.visible).name("World Axes").listen().onChange(function(value) {
@@ -173,7 +172,7 @@
             rawFile.overrideMimeType("application/json");
             rawFile.open("GET", file, true);
             rawFile.onreadystatechange = function() {
-                if (rawFile.readyState === 4 && rawFile.status == "200") {
+                if (rawFile.readyState === 4 && rawFile.status == "200") { //readyState status
                     callback(rawFile.responseText);
                 }
             }
@@ -181,7 +180,8 @@
         }
 
         // EVENT LISTENERS & HANDLERS
-        document.addEventListener("DOMContentLoaded", init);
+        document.addEventListener("DOMContentLoaded", init); //espera un evento
+
 
         window.addEventListener("resize", () => {
             camera.aspect = window.innerWidth / window.innerHeight;
@@ -257,7 +257,7 @@
                 this.orbitControls.autoRotate = value;
             }           
         }
-
+        //Defines the 
         class Axes extends THREE.AxesHelper {
             constructor(size = 10, visible = true) {
                 super(size);
@@ -904,6 +904,7 @@
                 }
 
             }
+            //
             setWireframeBuild(value) {
                 this.wireframeBool = value
 
